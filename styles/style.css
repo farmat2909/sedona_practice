@@ -26,7 +26,7 @@ body {
   line-height: 21px;
   background-color: #f2f2f2;
   color: #000;
-  outline: 5px solid rgba(255, 99, 78, 0.5);
+  outline: 5px solid rgba(205, 255, 78, 0.5);
   outline-offset: -5px;
 }
 
@@ -34,12 +34,25 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  width: 1200px;
+  max-width: 1200px;
   min-height: 100vh;
   background-color: #fff;
-  outline: 5px solid rgba(255, 99, 78, 0.5);
+  outline: 5px solid rgba(78, 255, 81, 0.5);
   outline-offset: -5px;
 }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+
 
 /* Navigation */
 
@@ -58,22 +71,21 @@ body {
 }
 
 .navigation-list {
+  display: flex;
+  flex-wrap: wrap;
   margin: 0;
   padding: 0;
-  list-style: none;
+  list-style-type: none;
   min-width: 340px;
   outline: 5px solid rgba(255, 99, 78, 0.5);
   outline-offset: -5px;
 }
 
-.navigation-user {
-  margin-left: auto;
-  min-width: 270px;
-  outline: 5px solid rgba(255, 99, 78, 0.5);
-  outline-offset: -5px;
-}
+
 
 .navigation-link {
+  display: block;
+  padding: 20px 16px;
   font-size: 20px;
   line-height: 24px;
   text-transform: capitalize;
@@ -81,7 +93,27 @@ body {
   text-decoration: none;
   color: inherit;
   text-align: center;
+  outline: 5px solid rgba(255, 99, 78, 0.5);
+  outline-offset: -5px;
 }
+
+.navigation-user .navigation-link {
+  min-width: 20px;
+  min-height: 20px;
+}
+
+.navigation-user {
+  display: flex;
+  margin-left: auto;
+  min-width: 270px;
+  outline: 5px solid rgba(255, 99, 78, 0.5);
+  outline-offset: -5px;
+}
+
+.navigation-user .navigation-item:nth-last-child(1) {
+  margin-left: auto;
+}
+
 
 .main-container {
   flex-grow: 1;
@@ -113,6 +145,7 @@ body {
 
 
 .hero {
+  margin-bottom: 69px;
   min-height: 485px;
   background-image: url("../images/backgrounds/index-background.jpg");
   background-size: cover;
@@ -122,15 +155,21 @@ body {
 }
 
 .hero-image {
+  padding: 51px 371px;
+  padding-bottom: 82px;
   display: block;
   margin: 0 auto;
 }
 
 /* Advantages */
 
-
+.advantages {
+  margin-bottom: 64px
+}
 
 .advantages-title {
+  margin: 0;
+  margin-bottom: 25px;
   font-weight: 700;
   font-size: 30px;
   line-height: 36px;
@@ -139,10 +178,21 @@ body {
 }
 
 .advantages-description {
+  margin: 0;
+  margin-bottom: 69px;
   font-size: 22px;
   line-height: 26px;
   color: #333;
   text-align: center;
+}
+
+
+
+.advantages-item-title {
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .advantages-list {
@@ -155,15 +205,9 @@ body {
   outline-offset: -5px;
 }
 
-.advantages-item-title {
-  font-size: 24px;
-  line-height: 28px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
 
 .advantages-item {
+  /* flex-grow: 1; */
   width: 400px;
   text-align: center;
   background-color: rgba(131, 179, 211, 0.12);
@@ -184,20 +228,41 @@ body {
 }
 
 .advantages-img-container {
-  width: 400px;
+  display: flex;
+  margin: 102px 85px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 230px;
   text-align: center;
   outline: 5px solid rgba(255, 99, 78, 0.5);
   outline-offset: -5px;
 }
 
+.advantages-img {
+  margin-left: auto;
+}
+
+.advantages-item-title {
+  margin: 0;
+}
 
 
+.advantages-item-description {
+  margin: 0;
+}
 
 
 
 /* Services */
 
+.services {
+  margin-bottom: 96px;
+}
+
 .services-title {
+  margin: 0;
+  margin-bottom: 20px;
   font-size: 30px;
   font-weight: 700;
   text-align: center;
@@ -206,6 +271,8 @@ body {
 }
 
 .services-description {
+  margin: 0;
+  margin-bottom: 64px;
   font-size: 22px;
   line-height: 26px;
   text-align: center;
@@ -218,11 +285,11 @@ body {
   margin: 0;
   padding: 0;
   list-style: none;
-  text-align: center;
 }
 
 .services-item {
   width: 400px;
+  text-align: center;
 }
 
 .services-item-name {
@@ -241,9 +308,17 @@ body {
 
 /* Booking */
 
+.booking {
+  display: flex;
+  margin-bottom: 96px;
+  flex-direction: column;
+  align-items: center;
+}
 
 
 .booking-title {
+  margin: 0;
+  margin-bottom: 20px;
   font-size: 30px;
   line-height: 36px;
   font-weight: 700;
@@ -253,6 +328,8 @@ body {
 
 
 .booking-description {
+  margin: 0;
+  margin-bottom: 64px;
   font-size: 22px;
   line-height: 26px;
   text-align: center;
@@ -262,6 +339,10 @@ body {
 /* Subscription */
 
 .subscription {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-image: url("../images/backgrounds/subscribe-background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -270,6 +351,8 @@ body {
 
 
 .subscription-title {
+  margin-top: 96px;
+  margin-bottom: 20px
   font-size: 30px;
   line-height: 36px;
   font-weight: 700;
@@ -280,6 +363,8 @@ body {
 
 
 .subscription-description {
+  margin: 0;
+  margin-bottom: 54px;
   font-size: 22px;
   line-height: 26px;
   text-align: center;
@@ -292,6 +377,9 @@ body {
   color: #000;
 }
 
+.subscription-form {
+  margin-bottom: 104px;;
+}
 
 /* Filters catalog*/
 
@@ -497,11 +585,20 @@ body {
 
 /* Socials */
 .footer-social {
-  width: 142px;
+  min-width: 142px;
 }
 
 .social-list {
-  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.button-social {
+  display: block;
+  padding: 13px 12px;
+  min-width: 25px;
+  min-height: 18px;
 }
 
 /* Contacts */
